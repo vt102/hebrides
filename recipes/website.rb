@@ -11,7 +11,7 @@ template '/var/www/html/index.html' do
   owner  'apache'
   group  'apache'
   mode   '0755'
-  variables {
+  variables(
     now: Time.now.utc.iso8601
-  }
+  )
 end
