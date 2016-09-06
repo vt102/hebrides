@@ -6,7 +6,7 @@
 
 require 'time'
 
-t = Time.now.iso8601         
+t = Time.now.iso8601
 
 file "/tmp/deploy-#{t}"
 

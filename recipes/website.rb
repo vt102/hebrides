@@ -12,6 +12,6 @@ template '/var/www/html/index.html' do
   group  'apache'
   mode   '0755'
   variables(
-    :now => Time.now.utc.iso8601
+    now: Time.now.utc.iso8601
   )
 end
