@@ -9,6 +9,7 @@ require 'json'
 
 app = search(:aws_opsworks_app).first
 log(app.to_json)
+log(node.to_json)
 
 template '/var/www/html/index.html' do
   source 'index.html.erb'
