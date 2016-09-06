@@ -20,7 +20,7 @@ template '/var/www/html/index.html' do
     now: Time.now.utc.iso8601,
     appid: app['app_id'],
     url: app['app_source']['url'],
-    victor: node['victor'],
-    year: node['year']
+    victor: node['normal']['victor'],
+    year: node['normal']['year']
   )
 end
