@@ -13,7 +13,7 @@ log(node.to_json)
 log("appid:  #{app['app_id']}")
 log("url:    #{app['app_source']['url']}")
 log("victor: #{node['victor']}")
-log("year:   #{node['year']")
+log("year:   #{node['year']}")
 
 template '/var/www/html/index.html' do
   source 'index.html.erb'
