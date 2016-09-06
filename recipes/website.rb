@@ -17,7 +17,9 @@ template '/var/www/html/index.html' do
   mode   '0755'
   variables(
     now: Time.now.utc.iso8601,
-    victor: app['victor'],
-    year: app['year']
+    appid: app['app_id'],
+    url: app['app_source']['url'],
+    victor: node['victor'],
+    year: node['year']
   )
 end
