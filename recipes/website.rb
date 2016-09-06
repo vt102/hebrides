@@ -10,6 +10,10 @@ require 'json'
 app = search(:aws_opsworks_app).first
 log(app.to_json)
 log(node.to_json)
+log("appid:  #{app['app_id']}")
+log("url:    #{app['app_source']['url']}")
+log("victor: #{node['victor']}")
+log("year:   #{node['year']")
 
 template '/var/www/html/index.html' do
   source 'index.html.erb'
@@ -20,7 +24,7 @@ template '/var/www/html/index.html' do
     now: Time.now.utc.iso8601,
     appid: app['app_id'],
     url: app['app_source']['url'],
-    victor: node['normal']['victor'],
-    year: node['normal']['year']
+    victor: node['victor'],
+    year: node['year']
   )
 end
