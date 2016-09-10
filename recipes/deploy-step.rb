@@ -10,11 +10,11 @@ require 'time'
 t = Time.now.iso8601
 file "/tmp/deploy-#{t}"
 
-File.open('/tmp/app.json', 'w') { |f|
-  f.write(search(:aws_opsworks_app).first.to_json)
-}
+bags = [ "app", "command", "ecs_cluster", "elastic_load_balancer",
+         "instance", "layer", "rds_db_instance", "stack", "user" ]
 
-File.open('/tmp/deploy.json', 'w') { |f|
-  f.write(search(:aws_opsworks_deploy).first.to_json)
+bags.each { |bag|
+  File.open("/tmp/#{bag}.json", 'w') { |f|
+    f.write(search(:"aws_opsworks_#{bag}").first.to_json)
+  }
 }
-
