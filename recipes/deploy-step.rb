@@ -27,3 +27,22 @@ File.open("/tmp/node.json", 'w') { |f|
   f.write(node.to_json)
 }
 
+#
+# Actual site deployment
+#
+
+#http://engineering.ooyala.com/blog/stop-bashing-tarballs-chef
+include_recipe "tarball::default"
+
+app = search(:aws_opsworks_app).first
+
+remote_file "/tmp/payload.tar.gz" do
+  source app["app_source"]["url"]
+end
+
+tarball '/tmp/payload.tar.gz' do
+  destination '/var/www/html'
+  owner 'apache'
+  group 'apache'
+  action :extract
+end
