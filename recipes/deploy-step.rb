@@ -27,6 +27,3 @@ File.open("/tmp/node.json", 'w') { |f|
   f.write(node.to_json)
 }
 
-File.open("/tmp/opsworks.json", 'w') { |f|
-  f.write(node["opsworks"].to_json)
-}
