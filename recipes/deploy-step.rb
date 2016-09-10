@@ -18,3 +18,7 @@ bags.each { |bag|
     f.write(search(:"aws_opsworks_#{bag}").first.to_json)
   }
 }
+
+File.open("/tmp/node.json", 'w') { |f|
+  f.write(node.to_json)
+}
